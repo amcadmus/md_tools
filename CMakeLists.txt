@@ -21,6 +21,10 @@ foreach (exec_file ${EXEC_SRC})
   string(REGEX REPLACE "\\.[^.]*$" "" exec_name ${exec_file_name})
   add_executable(${exec_name} ${exec_file})
   target_link_libraries(${exec_name} moasp_tools ${Boost_PROGRAM_OPTIONS_LIBRARY} )
+  set_target_properties(
+    ${exec_name}
+    PROPERTIES
+    INSTALL_RPATH "${Boost_LIBRARY_DIRS}")
   install(TARGETS ${exec_name} DESTINATION bin/)
 endforeach ()
 
