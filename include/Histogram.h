@@ -31,6 +31,44 @@ private:
 }
     ;
 
+
+class Histogram2D 
+{
+public:
+  Histogram2D		(const unsigned nbinx = 10,
+			 const unsigned nbiny = 10,
+			 const double lowerx = 0.,
+			 const double lowery = 0.,
+			 const double upperx = 0.,
+			 const double uppery = 0.);
+  void reinit		(const unsigned nbinx = 10,
+			 const unsigned nbiny = 10,
+			 const double lowerx = 0.,
+			 const double lowery = 0.,
+			 const double upperx = 0.,
+			 const double uppery = 0.);
+public:
+  void processData	(const vector<double > & vecxx, 
+			 const vector<double > & vecyy) ;
+  void getResult	(vector<double > & xx,
+			 vector<double > & yy,
+			 vector<vector<double > > & vv);
+private:
+  void setBoundary	(const double lowerx,
+			 const double lowery,
+			 const double upperx,
+			 const double uppery);
+  void setNumbBins	(const unsigned nbinx_, 
+			 const unsigned nbiny_) {nbinx = nbinx_; nbiny = nbiny_;}  
+  double lowerx;
+  double lowery;
+  double upperx;
+  double uppery;
+  unsigned nbinx, nbiny;
+  double hx, hy;
+  vector<vector<double> > value;  
+};
+
 #endif
 
 

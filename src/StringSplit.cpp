@@ -28,6 +28,8 @@ split (const std::string & in,
        const std::string & delimiter,
        std::vector<std::string > & out)
 {
+  out.clear();
+  
   size_t pos = 0;
   size_t len = delimiter.length();
   std::string s (in);
